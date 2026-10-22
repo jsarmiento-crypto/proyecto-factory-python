@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
 
-class Notificacion(ABC):
-    """Interfaz abstracta para los canales de notificación."""
-
+class NotificacionBase(ABC):
     @abstractmethod
-    def enviar(self, mensaje: str, destinatario: str) -> None:
+    def enviar(self, mensaje: str, usuario: str) -> None:
         pass
