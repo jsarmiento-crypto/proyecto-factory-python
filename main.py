@@ -1,14 +1,17 @@
 from notificaciones.factory import NotificacionFactory
 
-def ejecutar_demo():
-    canales = ["email", "sms", "push"]
-    mensaje = "Tu pedido #1042 ha sido procesado con exito."
-    usuario = "usuario_ejemplo@ecotec.edu.ec"
 
-    print("--- Demostracion del Patron Factory ---")
-    for canal in canales:
-        notificador = NotificacionFactory.crear_notificacion(canal)
-        notificador.enviar(mensaje, usuario)
+def main():
+  print('--- Demostracion del Patron Factory ---')
 
-if __name__ == "__main__":
-    ejecutar_demo()
+  canales = ['email', 'sms', 'push', 'whatsapp']
+  usuario_destino = 'usuario_ejemplo@ecotec.edu.ec'
+  mensaje_prueba = 'Tu pedido #1042 ha sido procesado con exito.'
+
+  for canal in canales:
+    notificador = NotificacionFactory.crear_notificacion(canal)
+    notificador.enviar(mensaje_prueba, usuario_destino)
+
+
+if __name__ == '__main__':
+  main()
