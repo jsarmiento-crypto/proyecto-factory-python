@@ -2,16 +2,16 @@ from notificaciones.factory import NotificacionFactory
 
 
 def main():
-  print('--- Demostracion del Patron Factory ---')
+  print("--- Demostración del Patrón Factory Method ---")
 
-  canales = ['email', 'sms', 'push', 'whatsapp']
-  usuario_destino = 'usuario_ejemplo@ecotec.edu.ec'
-  mensaje_prueba = 'Tu pedido #1042 ha sido procesado con exito.'
+  canales = ["email", "sms", "push", "whatsapp"]
+  destinatario = "usuario_ejemplo@ecotec.edu.ec"
+  mensaje = "Tu pedido #1042 ha sido procesado con éxito."
 
   for canal in canales:
     notificador = NotificacionFactory.crear_notificacion(canal)
-    notificador.enviar(mensaje_prueba, usuario_destino)
+    notificador.enviar(mensaje, destinatario)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
   main()

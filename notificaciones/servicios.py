@@ -1,32 +1,25 @@
-from abc import ABC, abstractmethod
+from .base import Notificacion
 
 
-class NotificacionBase(ABC):
+class NotificacionEmail(Notificacion):
 
-  @abstractmethod
-  def enviar(self, mensaje: str, usuario: str) -> None:
-    pass
-
-
-class NotificacionEmail(NotificacionBase):
-
-  def enviar(self, mensaje: str, usuario: str) -> None:
-    print(f"[EMAIL] Enviando a {usuario}: {mensaje}")
+  def enviar(self, mensaje: str, destinatario: str) -> None:
+    print(f"[EMAIL] Enviando a {destinatario}: '{mensaje}'")
 
 
-class NotificacionSMS(NotificacionBase):
+class NotificacionSMS(Notificacion):
 
-  def enviar(self, mensaje: str, usuario: str) -> None:
-    print(f"[SMS] Enviando a {usuario}: {mensaje}")
-
-
-class NotificacionPush(NotificacionBase):
-
-  def enviar(self, mensaje: str, usuario: str) -> None:
-    print(f"[PUSH] Enviando a {usuario}: {mensaje}")
+  def enviar(self, mensaje: str, destinatario: str) -> None:
+    print(f"[SMS] Enviando a {destinatario}: '{mensaje}'")
 
 
-class NotificacionWhatsApp(NotificacionBase):
+class NotificacionPush(Notificacion):
 
-  def enviar(self, mensaje: str, usuario: str) -> None:
-    print(f"[WHATSAPP] Enviando a {usuario}: {mensaje}")
+  def enviar(self, mensaje: str, destinatario: str) -> None:
+    print(f"[PUSH] Enviando a {destinatario}: '{mensaje}'")
+
+
+class NotificacionWhatsApp(Notificacion):
+
+  def enviar(self, mensaje: str, destinatario: str) -> None:
+    print(f"[WHATSAPP] Enviando a {destinatario}: '{mensaje}'")
